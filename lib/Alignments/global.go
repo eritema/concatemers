@@ -11,7 +11,7 @@ var sequenceAGlob = ""
 var sequenceBGlob = ""
 var identityGlobal = 0
 
-//Max returns the biggest value among a,b anc c and a corresponding flag (-1,0,1).
+//Max returns the biggest value among a,b and c and a corresponding flag (-1,0,1).
 func max(a, b, c int64) (int64, int64) {
 	if a >= b {
 		if a > c {

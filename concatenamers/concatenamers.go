@@ -3,14 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
-
 	"github.com/eritema/concatemers/lib"
 	"github.com/eritema/concatemers/lib/Alignments"
 	"github.com/eritema/concatemers/lib/fasta"
-	//"code.google.com/p/plotinum/plot"
-	//"code.google.com/p/plotinum/plotter"
-	//"code.google.com/p/plotinum/vg"
-	//"code.google.com/p/plotinum/plotutil"
 )
 
 /*type RectSet struct {
