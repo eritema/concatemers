@@ -96,7 +96,7 @@ func main() {
 		fmt.Println(data[i].Id)
 		helpBlocks := make([]Block, len(data[i].Blocks))
 		for j := 0; j < len(data[i].Blocks); j++ {
-			helpBlocks[data[j].Blocks.BlockReadStart] = data[j].Blocks
+			helpBlocks[j] = data[i].Blocks[j]
 		}
 		for j := 0; j < len(helpBlocks); j++ {
 			primo := true
