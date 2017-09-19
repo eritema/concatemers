@@ -3,17 +3,18 @@ package Alignments
 import "testing"
 
 func TestEdit(t *testing.T) {
-	seq1 := "ATTACGATAGCAATAGCAGTACTGCAGT"
-	seq2 := "ATTACGATAGCAATAGCAGTACTGCAGT"
-	seq3 := "ATTACGATAGCAATACCAGTACTGCAGT"
-	seq4 := "TTACGATAGCAATACCAGTACTGCAGT"
-	if EditDistance(seq1, seq2) != 0 {
-		t.Error(`EditDistance("ATTACGATAGCAATAGCAGTACTGCAGT","ATTACGATAGCAATAGCAGTACTGCAGT") not 0`)
+	var tests = []struct {
+		input1 string
+		input2 string
+		output int64
+	}{
+		{"ATTACGATAGCAATAGCAGTACTGCAGT", "ATTACGATAGCAATAGCAGTACTGCAGT", 0},
+		{"ATTACGATAGCAATAGCAGTACTGCAGT", "ATTACGATAGCAATACCAGTACTGCAGT", 1},
+		{"ATTACGATAGCAATAGCAGTACTGCAGT", "TTACGATAGCAATACCAGTACTGCAGT", 2},
 	}
-	if EditDistance(seq1, seq3) != 1 {
-		t.Error(`EditDistance("ATTACGATAGCAATAGCAGTACTGCAGT","ATTACGATAGCAATACCAGTACTGCAGT") not 0`)
-	}
-	if EditDistance(seq1, seq4) != 2 {
-		t.Error(`EditDistance("ATTACGATAGCAATAGCAGTACTGCAGT","TTACGATAGCAATACCAGTACTGCAGT") not 0`)
+	for _, test := range tests {
+		if got := EditDistance(test.input1, test.input2); got != test.output {
+			t.Errorf("EditDistance(%q,%q)=%d", test.input1, test.input2, got)
+		}
 	}
 }
